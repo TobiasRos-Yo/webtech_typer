@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://webtech-typer-frontend.onrender.com"})
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://webtech-typer-frontend.onrender.com", "https://webtech-typer-frontend.onrender.com/scores"})
 public class MyController {
 
     @GetMapping("/typer")
