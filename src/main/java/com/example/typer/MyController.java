@@ -1,8 +1,7 @@
 package com.example.typer;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -10,14 +9,26 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://webtech-typer-frontend.onrender.com"})
 public class MyController {
 
-    @GetMapping("/typer")
-    public List<UserScore> userScores() {
-        UserScore highscore = new UserScore(111, true);
-        UserScore lastScore1 = new UserScore(99, false);
-        UserScore lastScore2 = new UserScore(101, false);
-        UserScore lastScore3 = new UserScore(84, false);
-        UserScore lastScore4 = new UserScore(80, false);
-        UserScore lastScore5 = new UserScore(77, false);
-        return List.of(highscore, lastScore1, lastScore2, lastScore3, lastScore4, lastScore5);
+    @Autowired
+    ScoreService service;
+
+    @PostMapping("/typer")
+    public Score createScore(@RequestBody Score score) {
+        return service.save(score);
+    }
+
+    @GetMapping("/typer/{id}")
+    public Score getScore(@PathVariable int id) {
+        return service.get(id);
+    }
+
+    @GetMapping("/typer/highscore")
+    public Score getHighscore() {
+        return service.getHighscore();
+    }
+
+    @GetMapping("/typer/recent")
+    public List<Score> getRecentScores() {
+        return service.getRecentScores();
     }
 }
