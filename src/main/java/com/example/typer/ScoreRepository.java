@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ScoreRepository extends CrudRepository<Score, Integer> {
 
-    @Query(value = "SELECT TOP * FROM Score ORDER BY score DESC",
+    @Query(value = "SELECT * FROM Score ORDER BY score DESC LIMIT 1",
             nativeQuery = true)
     Score findHighscore();
 
-    @Query(value = "SELECT TOP 5 * FROM Score ORDER BY id DESC",
+    @Query(value = "SELECT * FROM Score ORDER BY id DESC LIMIT 5",
             nativeQuery = true)
     List<Score> findRecentScores();
 }
