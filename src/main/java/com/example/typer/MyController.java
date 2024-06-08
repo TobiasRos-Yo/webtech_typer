@@ -27,7 +27,7 @@ public class MyController {
         return service.getHighscore();
     }
 
-    @GetMapping("/typer/recent")
+    @GetMapping("/typer/recentscores")
     public List<Score> getRecentScores() {
         return service.getRecentScores();
     }
