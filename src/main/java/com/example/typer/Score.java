@@ -12,12 +12,15 @@ public class Score {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int score;
-    //TODO: Gamemode hinzufügen?
+    private int acc;
+    private String mode;
 
     public Score() {}
 
-    public Score(int score) {
+    public Score(int score, int acc, String mode) {
         this.score = score;
+        this.acc = acc;
+        this.mode = mode;
     }
 
     public int getId() {
@@ -31,5 +34,17 @@ public class Score {
     }
     public void setScore(int score) {
         this.score = score;
+    }
+    public int getAcc() {
+        return acc;
+    }
+    public void setAcc(int acc) {
+        this.acc = acc;
+    }
+    public String getMode() {
+        return mode;
+    }
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 }
