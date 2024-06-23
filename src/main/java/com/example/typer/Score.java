@@ -47,4 +47,14 @@ public class Score {
     public void setMode(String mode) {
         this.mode = mode;
     }
+
+    @Override
+    public String toString() {
+        return "Score{" +
+                "id=" + id +
+                ", score=" + score +
+                ", acc=" + acc +
+                ", mode='" + mode + '\'' +
+                '}';
+    }
 }
