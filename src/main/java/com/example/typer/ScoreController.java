@@ -27,6 +27,11 @@ public class ScoreController {
         return service.getHighscore();
     }
 
+    @GetMapping("/typer/topscores/{mode}")
+    public List<Score> getTopScoresByMode(@PathVariable String mode) {
+        return service.getTopScoresByMode(mode);
+    }
+
     @GetMapping("/typer/recentscores")
     public List<Score> getRecentScores() {
         return service.getRecentScores();

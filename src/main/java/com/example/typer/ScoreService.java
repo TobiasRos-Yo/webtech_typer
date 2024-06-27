@@ -23,6 +23,10 @@ public class ScoreService {
         return repo.findHighscore();
     }
 
+    public List<Score> getTopScoresByMode(String mode) {
+        return repo.findTopScoresByMode(mode);
+    }
+
     public List<Score> getRecentScores() {
         return repo.findRecentScores();
     }
